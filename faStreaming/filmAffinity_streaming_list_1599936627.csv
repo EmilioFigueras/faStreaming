@@ -1,0 +1,11 @@
+streamings,Age,Duration,popularity,Title,tmdb,Year,imdb
+| Filmin | Movistar |,12,109,31.241,Psicosis ,8.4,1960,8.5
+| Filmin |,0,97,9.139,Cuando pasan las cigüeñas ,8.2,1957,8.3
+| Filmin |,0,114,20.756,Metrópolis ,8.2,1927,0
+| Filmin | Amazon |,0,87,15.865,Luces de la ciudad ,8.4,1931,8.5
+|,0,118,10.529,¡Qué verde era mi valle! ,7.2,1941,7.7
+| Amazon | Netflix |,16,144,48.852,El resplandor ,8.2,1980,8.4
+| Movistar |,APTA,131,15.806,Sin perdón ,7.9,1992,8.2
+|,0,175,22.095,Hasta que llegó su hora ,8.3,1968,8.5
+| Amazon | HBO | Movistar |,18,154,48.725,Pulp Fiction ,8.5,1994,8.9
+| Movistar | FlixOLE |,0,78,2.767,"Bienvenido, Míster Marshall ",7.4,1953,8
