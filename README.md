@@ -30,4 +30,6 @@ El funcionamiento básico de la herramienta es el siguiente:
 	style="float: left; margin-right: 10px;" />
 </p>
 
-Se debe llamar a la herramienta indicando entre comillas la dirección web de la lista objetivo y, por defecto, la herramienta se pondrá a buscar cada una de las películas de la lista en JustWatch y devolverá por pantalla la información obtenida. También creará un fichero CSV con dicha información. 
+Se debe llamar a la herramienta indicando entre comillas la dirección web de la lista objetivo y, por defecto, la herramienta se pondrá a buscar cada una de las películas de la lista en JustWatch y devolverá por pantalla la información obtenida. 
+
+También creará un fichero CSV con dicha información. El fichero CSV generado se debe importar con separador por coma y delimitador de texto por comillas doble. 

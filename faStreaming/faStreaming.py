@@ -4,7 +4,7 @@
 #	 ./faStreaming.py -h
 # for usage info and options
 '''
-EN: Gets the streaming platforms on which movies from an entered FilmAffinity list are available.
+Gets the streaming platforms on which movies from an entered FilmAffinity list are available.
 '''
 import argparse
 import csv
@@ -105,13 +105,19 @@ def convert_data(data_in):
 	return data_in
 
 def justwatch(data_in):
-	"""Get info from each film"""
+	"""Get info in justwatch from each film"""
+
 	final_data = []
 	#url_base = "https://apis.justwatch.com/content/urls?include_children=true&path=%2Fes%2Fpelicula%2F{title}"
 	url_base = "https://apis.justwatch.com/content/titles/es_ES/popular?body=%7B%22page_size%22:5,%22page%22:1,%22query%22:%22{title}%22,%22content_types%22:[%22show%22,%22movie%22]%7D"
 	url_film_base = "https://apis.justwatch.com/content/titles/movie/{id}/locale/es_ES?language=es"
 	#url_base = "https://www.justwatch.com/es/pelicula/{title}"
+
+	total_size = len(data_in)
+	position = 1
 	for film in data_in:
+		print(colored("Película {p} de {t}...".format(p=position, t=total_size), "blue", attrs=['bold']), end = "\r")
+		position += 1
 		url = url_base.format(title=film["jw_title"])
 		request = requests.get(url, headers = {'User-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0'})
 		request.encoding = "utf-8"
@@ -221,6 +227,7 @@ def justwatch(data_in):
 				"streamings": streamings
 			}
 			final_data.append(film_st)
+	print(colored("Proceso finalizado. Se ha obtenido toda la información.", "green", attrs=['bold']))
 	return final_data
 
 def show_info(data_in):
@@ -243,7 +250,8 @@ def save_to_csv(data_in, filename):
 		writer.writerow(list(data_in[0]))
 
 		for film in data_in:
-			writer.writerow(list(film.values()))
+			if film["streamings"] != "|":
+				writer.writerow(list(film.values()))
 	print(colored("Archivo {} creado con la información de la lista de FA".format(filename), "green", attrs=['bold']))
 
 if __name__ == "__main__":
